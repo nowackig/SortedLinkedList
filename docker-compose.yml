@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  sorted-linked-list:
+    container_name: sorted-linked-list
+    image: sorted-linked-list
+    build:
+      context: .
+      args:
+        PHP_XDEBUG_ENABLED: 1
+    environment:
+      - PHP_IDE_CONFIG=serverName=sorted-linked-list
+    volumes:
+      - ./:/app:rw,cached
+    profiles:
+      - sorted-linked-list
+    ports:
+      - "9000:9000"

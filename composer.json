@@ -1,0 +1,38 @@
+{
+    "name": "cleverg/sorted-linked-list",
+    "description": "Library delivering sorted linked list functionality",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Cleverg\\SortedLinkedList\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cleverg\\SortedLinkedList\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Grzegorz Nowacki",
+            "email": "nowackig@o2.pl"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4",
+        "friendsofphp/php-cs-fixer": "^3.35",
+        "rector/rector": "^0.18.5",
+        "phpstan/phpstan": "^1.10"
+    },
+    "scripts": {
+        "static:analyze": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/php-cs-fixer fix --dry-run -vvv --diff",
+            "vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 16G",
+            "vendor/bin/rector process --dry-run"
+        ]
+    }
+}
